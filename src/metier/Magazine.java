@@ -18,11 +18,6 @@ public class Magazine extends Document {
     }
 
     @Override
-    public void ajouter() {
-        System.out.println("Magazin " + titre + " ajoutee avec succes");
-    }
-
-    @Override
     public void emprunter() {
         System.out.println("^^^^^^^^^ Le magazine " + titre + "' a été emprunté. ^^^^^^^^^");
     }

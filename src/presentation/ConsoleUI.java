@@ -9,7 +9,6 @@ import src.metier.Magazine;
 public class ConsoleUI {
     public static void main(String[] args) {
         Bibliotheque bibliotheque = new Bibliotheque();
-
         Scanner scan = new Scanner(System.in);
         int choix;
 
@@ -48,7 +47,7 @@ public class ConsoleUI {
                             String isbn = scan.nextLine();
 
                             Livre livre = new Livre(idLivre, titreL, auteurL, datePubL, nbrePageL, isbn);
-                            livre.ajouter();
+                            bibliotheque.AjouterDocument(livre);
                             break;
                         case 2:
                             System.out.println("Veuillez saisir ID du magazine : ");
@@ -65,15 +64,32 @@ public class ConsoleUI {
                             int numero = scan.nextInt();
 
                             Magazine magazine = new Magazine(idMagazine, titreM, auteurM, datePubM, nbrePageM, numero);
-                            magazine.ajouter();
+                            bibliotheque.AjouterDocument(magazine);
                             break;
 
                         default:
+                            System.out.println("Choix incorrect");
                             break;
                     }
                     break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    bibliotheque.AfficherDocument();
+                    break;
+                case 5:
+                    System.out.println("Tapez le document que vous voulez chercher");
+                    String doc = scan.nextLine(); 
+                    bibliotheque.RechercheDocument(doc);
+                    break;
+                case 6:
+                    System.out.println("Au revoir");
+                    break;
 
                 default:
+                    System.out.println("Choix incorrect");
                     break;
             }
 

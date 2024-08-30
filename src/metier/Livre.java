@@ -16,11 +16,6 @@ public class Livre extends Document {
     public void setIsbn(String isbn){
         this.isbn = isbn;
     }
-
-    @Override
-    public void ajouter() {
-        System.out.println("Livre " + titre + " ajoutee avec succes");
-    }
     
     @Override
     public void emprunter() {

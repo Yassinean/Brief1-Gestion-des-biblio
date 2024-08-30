@@ -32,8 +32,14 @@ public class Bibliotheque {
     public void RechercheDocument(String document){
         for(Document doc : documents){
             if (doc.getTitre() == document) {
-                System.out.println("Le documenr a recherche est : " + searchDocs.get(document));
+                System.out.println("Le document a recherche est : " + searchDocs.get(document));
             }
+        }
+    }
+
+    public void AfficherDocument(){
+        for(Document doc : documents){
+            System.out.println(doc);
         }
     }
 

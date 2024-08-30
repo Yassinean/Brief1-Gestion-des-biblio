@@ -64,7 +64,6 @@ public abstract class Document {
         this.isEmprunted = isEmprunted;
     }
 
-    public abstract void ajouter();
     public abstract void emprunter();
     public abstract void retourner();
     public abstract void afficherDetails();
