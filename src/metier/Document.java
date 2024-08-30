@@ -1,14 +1,14 @@
 package src.metier;
-import java.time.LocalDate;
 
 public abstract class Document {
     protected int id;
     protected String titre;
     protected String auteur;
-    protected LocalDate datePublication;
+    protected String datePublication;
     protected int nombreDePages;
+    protected boolean isEmprunted = false;
 
-    public Document(int id, String titre, String auteur, LocalDate datePublication, int nombreDePages) {
+    public Document(int id, String titre, String auteur, String datePublication, int nombreDePages) {
         this.id = id;
         this.titre = titre;
         this.auteur = auteur;
@@ -48,14 +48,23 @@ public abstract class Document {
         this.nombreDePages = nombreDePages;
     }
 
-    public LocalDate getDate(){
+    public String getDate(){
         return datePublication;
     }
 
-    public void setDate(LocalDate datePublication){
+    public void setDate(String datePublication){
         this.datePublication = datePublication;
     }
 
+    public boolean getIsEmprunted(){
+        return isEmprunted;
+    }
+
+    public void setIsEmprunted(boolean isEmprunted){
+        this.isEmprunted = isEmprunted;
+    }
+
+    public abstract void ajouter();
     public abstract void emprunter();
     public abstract void retourner();
     public abstract void afficherDetails();

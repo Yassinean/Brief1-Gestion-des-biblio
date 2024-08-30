@@ -1,11 +1,10 @@
 package src.metier;
-import java.time.LocalDate;
 
 
 public class Livre extends Document {
    private String isbn ;
 
-    public Livre(int id, String titre, String auteur, LocalDate datePublication, int nombreDePages, String isbn) {
+    public Livre(int id, String titre, String auteur, String datePublication, int nombreDePages, String isbn) {
         super(id, titre, auteur, datePublication, nombreDePages);
         this.isbn = isbn;
     }
@@ -18,6 +17,11 @@ public class Livre extends Document {
         this.isbn = isbn;
     }
 
+    @Override
+    public void ajouter() {
+        System.out.println("Livre " + titre + " ajoutee avec succes");
+    }
+    
     @Override
     public void emprunter() {
         System.out.println("^^^^^^^^^ Le livre '" + titre + "' a été emprunté. ^^^^^^^^^");
