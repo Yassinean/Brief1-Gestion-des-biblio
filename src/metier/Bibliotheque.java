@@ -3,45 +3,55 @@ package src.metier;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
 public class Bibliotheque {
-    ArrayList<Document> documents = new ArrayList<Document>();
-    HashMap<Document,String> searchDocs = new HashMap<Document,String>();
+    ArrayList<Document> documents;
+    HashMap<String,Document> searchDocs;
 
-    public void AjouterDocument(Document document){
+    public Bibliotheque() {
+        this.documents = new ArrayList<Document>();
+        this.searchDocs = new HashMap<String,Document>();
+    }
+
+    public void AjouterDocument(Document document) {
         documents.add(document);
-        System.out.println("Document ajoute avec succes");
+        searchDocs.put(document.titre, document);
+        System.out.println("Document " + document.titre + " ajoute avec succes");
     }
 
-    public void EmprunterDocument(Document document){
-        boolean isNotEmprunted = document.getIsEmprunted();
+    public void EmprunterDocument(int id) {
+        Document doc = documents.get(id);
+        if (doc.getIsEmprunted() == false || doc == null) {
+            doc.emprunter();
+            doc.setIsEmprunted(true);
+        } else if (doc.getIsEmprunted() == true) {
+            System.out.println("Desole ! Ce document est deja emprunte , vous pouvez pas l'emprunter");
+        } else
+            System.out.println("Ce document de ID " + doc.id + " n'exist pas");
+    }
+
+    public void RetournerDocument(int id) {
+        Document doc = documents.get(id);
+        if (doc.getIsEmprunted() == true) {
+            doc.retourner();
+            doc.setIsEmprunted(false);
+        } else
+            System.out.println("Ce document " + doc.id + " n'exist pas");
+    }
+
+    public void RechercherDocument(String titre) {
+        Document doc = searchDocs.get(titre);
+        if (doc == null) {
+            System.out.println("Ce document n'existe pas.");
+        } else {
+            System.out.println("Le document recherché est :");
+            doc.afficherDetails();  // Affiche les détails du document trouvé
+        }
+    }
+
+    public void AfficherDocument() {
         for (Document doc : documents) {
-            if (isNotEmprunted) {
-                document.setIsEmprunted(true);
-                System.out.println("Votre Document est emprunte avec succes");
-            }else 
-                System.out.println("Ce document est emprunte");
-        }
-    }
-
-    public void RetournerDocument(Document document){
-        document.setIsEmprunted(false);
-        System.out.println("Document est retourne");
-    }
-
-    public void RechercheDocument(String document){
-        for(Document doc : documents){
-            if (doc.getTitre() == document) {
-                System.out.println("Le document a recherche est : " + searchDocs.get(document));
-            }
-        }
-    }
-
-    public void AfficherDocument(){
-        for(Document doc : documents){
             System.out.println(doc);
         }
     }
-
 
 }
