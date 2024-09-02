@@ -93,11 +93,11 @@ public class ConsoleUI {
             System.out.print(prompt);
             if (scan.hasNextInt()) {
                 input = scan.nextInt();
-                scan.nextLine(); // Consommer la nouvelle ligne restante
+                scan.nextLine();
                 break;
             } else {
                 System.out.println("Entrée invalide. Veuillez entrer un nombre entier.");
-                scan.next(); // Consommer l'entrée invalide
+                scan.next();
             }
         }
         return input;

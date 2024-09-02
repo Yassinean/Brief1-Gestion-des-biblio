@@ -44,7 +44,7 @@ public class Bibliotheque {
             System.out.println("Ce document n'existe pas.");
         } else {
             System.out.println("Le document recherché est :");
-            doc.afficherDetails();  // Affiche les détails du document trouvé
+            doc.afficherDetails();
         }
     }
 
@@ -55,3 +55,4 @@ public class Bibliotheque {
     }
 
 }
+
