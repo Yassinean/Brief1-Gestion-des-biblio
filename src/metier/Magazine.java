@@ -4,8 +4,8 @@ package src.metier;
 public class Magazine extends Document {
     private int numero;
 
-    public Magazine(int id, String titre, String auteur, String datePublication, int nombreDePages, int numero) {
-        super(id, titre, auteur, datePublication, nombreDePages);
+    public Magazine(String titre, String auteur, String datePublication, int nombreDePages, int numero) {
+        super(titre, auteur, datePublication, nombreDePages);
         this.numero = numero;
     }
 
@@ -18,7 +18,7 @@ public class Magazine extends Document {
     }
 
     public String toString(){
-        return "Magazine \n[Numéro=" + numero + ", Titre=" + titre + ", Auteur=" + auteur +
+        return "Magazine \n[id : "+ super.getId() +" Numéro=" + numero + ", Titre=" + titre + ", Auteur=" + auteur +
                 ", Date de publication=" + datePublication + ", Pages=" + nombreDePages + "]";
     }
     

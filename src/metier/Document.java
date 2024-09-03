@@ -1,15 +1,14 @@
 package src.metier;
 
 public abstract class Document {
-    protected int id;
+    private int id;
     protected String titre;
     protected String auteur;
     protected String datePublication;
     protected int nombreDePages;
     protected boolean isEmprunted = false;
 
-    public Document(int id, String titre, String auteur, String datePublication, int nombreDePages) {
-        this.id = id;
+    public Document(String titre, String auteur, String datePublication, int nombreDePages) {
         this.titre = titre;
         this.auteur = auteur;
         this.datePublication = datePublication;

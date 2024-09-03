@@ -3,8 +3,8 @@ package src.metier;
 public class Livre extends Document {
     private String isbn;
 
-    public Livre(int id, String titre, String auteur, String datePublication, int nombreDePages, String isbn) {
-        super(id, titre, auteur, datePublication, nombreDePages);
+    public Livre(String titre, String auteur, String datePublication, int nombreDePages, String isbn) {
+        super(titre, auteur, datePublication, nombreDePages);
         this.isbn = isbn;
     }
 
@@ -17,7 +17,7 @@ public class Livre extends Document {
     }
 
     public String toString() {
-        return "Livre \n [ISBN=" + isbn + ", Titre=" + titre + ", Auteur=" + auteur +
+        return "Livre \n [ id : " + super.getId() +" ISBN=" + isbn + ", Titre=" + titre + ", Auteur=" + auteur +
                 ", Date de publication=" + datePublication + ", Pages=" + nombreDePages + "]";
     }
 
