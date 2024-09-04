@@ -17,11 +17,15 @@ public class Magazine extends Document {
         this.numero = num;
     }
 
-    public String toString(){
-        return "Magazine \n[id : "+ super.getId() +" Numéro=" + numero + ", Titre=" + titre + ", Auteur=" + auteur +
-                ", Date de publication=" + datePublication + ", Pages=" + nombreDePages + "]";
+    public String toString() {
+        return "Magazine \n [ id : " + super.getId() + 
+               ", Numero = " + numero + 
+               ", Titre = " + titre + 
+               ", Auteur = " + auteur + 
+               ", Date de publication = " + datePublication + 
+               ", Pages = " + nombreDePages + 
+               ", Status : " + (super.getIsEmprunted() == true ? "Emprunté" : "Disponible") + "]";
     }
-    
     @Override
     public void emprunter() {
         System.out.println("^^^^^^^^^ Le magazine " + titre + " a été emprunté avec succes. ^^^^^^^^^");
@@ -34,5 +38,12 @@ public class Magazine extends Document {
 
     @Override
     public void afficherDetails() {
+        System.out.println("Magazine \n [ id : " + super.getId() + 
+               ", Numero = " + numero + 
+               ", Titre = " + titre + 
+               ", Auteur = " + auteur + 
+               ", Date de publication = " + datePublication + 
+               ", Pages = " + nombreDePages + 
+               ", Status : " + (super.getIsEmprunted() == true ? "Emprunté" : "Disponible") + "]");
     }
 }

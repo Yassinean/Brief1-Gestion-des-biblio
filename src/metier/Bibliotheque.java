@@ -5,24 +5,23 @@ import java.util.HashMap;
 
 public class Bibliotheque {
     ArrayList<Document> documents;
-    HashMap<String, Document> searchDocs;
+    HashMap<String, Document> documentHashMap;
 
     protected int count = 1;
 
     public Bibliotheque() {
         this.documents = new ArrayList<Document>();
-        this.searchDocs = new HashMap<String, Document>();
+        this.documentHashMap = new HashMap<String, Document>();
     }
 
     public void AjouterDocument(Document document) {
         document.setId(count);
         documents.add(document);
-        searchDocs.put(document.titre, document);
+        documentHashMap.put(document.titre, document);
         count++;
     }
 
     public void EmprunterDocument(int id) {
-        // Document doc = documents.get(id);
         for (Document docs : documents) {
             if (!docs.getIsEmprunted() && docs.getId() == id) {
                 docs.emprunter();
@@ -35,16 +34,17 @@ public class Bibliotheque {
     }
 
     public void RetournerDocument(int id) {
-        Document doc = documents.get(id);
-        if (doc.getIsEmprunted()) {
-            doc.retourner();
-            doc.setIsEmprunted(false);
-        } else
-            System.out.println("Ce document " + doc.getId() + " n'exist pas");
+        for (Document doc : documents) {
+            if (doc.getIsEmprunted()) {
+                doc.retourner();
+                doc.setIsEmprunted(false);
+            } else
+                System.out.println("Ce document " + doc.getId() + " n'exist pas");
+        }
     }
 
     public void RechercherDocument(String titre) {
-        Document doc = searchDocs.get(titre);
+        Document doc = documentHashMap.get(titre);
         if (doc == null) {
             System.out.println("Ce document n'existe pas.");
         } else {

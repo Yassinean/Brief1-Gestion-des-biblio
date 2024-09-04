@@ -17,8 +17,13 @@ public class Livre extends Document {
     }
 
     public String toString() {
-        return "Livre \n [ id : " + super.getId() +" ISBN=" + isbn + ", Titre=" + titre + ", Auteur=" + auteur +
-                ", Date de publication=" + datePublication + ", Pages=" + nombreDePages + "]";
+        return "Livre \n [ id : " + super.getId() + 
+               ", ISBN=" + isbn + 
+               ", Titre=" + titre + 
+               ", Auteur=" + auteur + 
+               ", Date de publication=" + datePublication + 
+               ", Pages=" + nombreDePages + 
+               ", Status : " + (super.getIsEmprunted() == true ? "Emprunté" : "Disponible") + "]";
     }
 
     @Override
@@ -34,7 +39,7 @@ public class Livre extends Document {
     @Override
     public void afficherDetails() {
         System.out.println("Livre \n [ISBN=" + isbn + ", Titre=" + titre + ", Auteur=" + auteur +
-                ", Date de publication=" + datePublication + ", Pages=" + nombreDePages + "]");
+                ", Date de publication=" + datePublication + ", Pages=" + nombreDePages + ",Status : " + (super.getIsEmprunted() == true ? "Emprunte" : "Disponible")  + "]");
     }
 
 }
