@@ -27,7 +27,7 @@ public class Bibliotheque {
             if (!docs.getIsEmprunted() && docs.getId() == id) {
                 docs.emprunter();
                 docs.setIsEmprunted(true);
-            } else if (docs.getIsEmprunted() == true && docs.getId() == id) {
+            } else if (docs.getIsEmprunted() && docs.getId() == id) {
                 System.out.println("Desole ! Ce document est deja emprunte , vous pouvez pas l'emprunter");
             } else
                 System.out.println("Ce document de n'exist pas");
@@ -36,7 +36,7 @@ public class Bibliotheque {
 
     public void RetournerDocument(int id) {
         Document doc = documents.get(id);
-        if (doc.getIsEmprunted() == true) {
+        if (doc.getIsEmprunted()) {
             doc.retourner();
             doc.setIsEmprunted(false);
         } else

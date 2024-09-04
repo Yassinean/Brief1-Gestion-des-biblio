@@ -65,16 +65,31 @@ public class ConsoleUI {
                         }
                     }
                 }
-                case 2 -> {int idEmprunt = getIntInput(scan, "Veuillez saisir l'ID du document à emprunter : ");bibliotheque
-                        .EmprunterDocument(idEmprunt);}
-                case 3 -> {int idRetour = getIntInput(scan, "Veuillez saisir l'ID du document à retourner : ");bibliotheque
-                        .RetournerDocument(idRetour);}
-                case 4 -> {bibliotheque.AfficherDocument();}
-                case 5 -> {String titreRech = getStringInput(scan,
-                        "Tapez le titre du document que vous voulez chercher : ");bibliotheque
-                                .RechercherDocument(titreRech);}
-                case 6 -> {System.out.println("Au revoir !");}
-                default -> {System.out.println("Choix incorrect, veuillez réessayer.");}
+                case 2 -> {
+                    int idEmprunt = getIntInput(scan, "Veuillez saisir l'ID du document à emprunter : ");
+                    bibliotheque
+                            .EmprunterDocument(idEmprunt);
+                }
+                case 3 -> {
+                    int idRetour = getIntInput(scan, "Veuillez saisir l'ID du document à retourner : ");
+                    bibliotheque
+                            .RetournerDocument(idRetour);
+                }
+                case 4 -> {
+                    bibliotheque.AfficherDocument();
+                }
+                case 5 -> {
+                    String titreRech = getStringInput(scan,
+                            "Tapez le titre du document que vous voulez chercher : ");
+                    bibliotheque
+                            .RechercherDocument(titreRech);
+                }
+                case 6 -> {
+                    System.out.println("Au revoir !");
+                }
+                default -> {
+                    System.out.println("Choix incorrect, veuillez réessayer.");
+                }
             }
         } while (choix != 6);
 
